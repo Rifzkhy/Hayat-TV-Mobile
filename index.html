@@ -1,0 +1,233 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TODO: Stylesheet -->
+    <link rel="icon" type="image/x-icon" href="./src/logoicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <link
+      href="https://unpkg.com/video.js@7/dist/video-js.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js"
+      defer
+    ></script>
+
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(function (OneSignal) {
+        OneSignal.init({
+          appId: "bb9d1182-7b72-476c-860e-fe7be23417dc",
+        });
+      });
+    </script>
+
+    <script
+      src="https://static.elfsight.com/platform/platform.js"
+      data-use-service-core
+      defer
+    ></script>
+    <div class="elfsight-app-565b82d8-0b26-44af-b74a-ecf3def5287c"></div>
+
+    <meta name="clckd" content="86b891e8671adba9165eddba22fdb943" />
+
+    <title>Hayat TV Mobile</title>
+  </head>
+  <body onload="display_ct();">
+    <div class="navigation sticky-top">
+      <div class="navbar navbar-expand-md">
+        <div class="container-fluid">
+          <img
+            src="./src/hayattvmobile-logo.webp"
+            alt="hayattvmobile"
+            height="30"
+          />
+        </div>
+      </div>
+      <marquee class="information-bar" behavior="scroll" direction="left"
+        >UNTUK SELURUH PELANGGAN HAYATTV SEGERA LAKUKAN MIGRASI DARI SIARAN TV
+        ANALOG KESIARAN TV DIGITAL <i class="bi bi-dot"></i> PEMIRSA HAYATV KAMI
+        MENYEDIAKAN IKLAN TV DAN MEDIA SOSIAL FANSPAGE FB : JURNALKOTIM - YT :
+        HAYATTV SAMPIT SILAHKAN HUB. MARKETING KAMI VIA WA (0812 3491 6813)
+        <i class="bi bi-dot"></i> INFORMASI PENGADUAN ATAU PEMASANGAN TV
+        BERLANGGANAN HUB. CUSTOMER SERVICES (0815 2252 2092) SENIN S/D SABTU
+        PUKUL 08.00 - 16.00 WIB <i class="bi bi-dot"></i> INFORMASI PENGADUAN
+        ATAU PEMASANGAN INTERNET FAZNET HUB. CUSTOMER SERVICES (0853 8905 2690 )
+        SENIN S/D SABTU PUKUL 08.00 - 16.00 WIB</marquee
+      >
+    </div>
+
+    <div class="jumbotron">
+      <div class="video-player py-5 p-md-5">
+        <div class="row justify-content-center">
+          <div class="col-10 border h-100 p-3">
+            <video
+              id="hayattv"
+              class="video-js vjs-theme-forest"
+              controls
+              preload="auto"
+              fluid="true"
+              poster="./src/hayattvmobile-poster.webp"
+            >
+              <source
+                src="https://hayattvmobile.site/hls/hayattv.m3u8"
+                type="application/x-mpegURL"
+              />
+            </video>
+            <p class="pt-2 px-2">Bagikan :</p>
+            <div class="video-share" align="center">
+              <a
+                class="btn text-white btn-primary m-2"
+                href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fhayattvmobile.site%2F"
+                role="button"
+                target="_blank"
+                ><i class="bi bi-facebook"></i> Facebook</a
+              >
+              <a
+                class="btn text-white m-2"
+                href="https://wa.me/?text=Yuk%20nonton%20streaming%20HayatTV%20di%20hayattvmobile.site"
+                role="button"
+                target="_blank"
+                style="background-color: #0cc041;"
+                ><i class="bi bi-whatsapp"></i> Whatsapp</a
+              >
+              <a
+                class="btn text-white m-2"
+                href="https://twitter.com/intent/tweet?url=http://hayattvmobile.site/"
+                role="button"
+                target="_blank"
+                style="background-color: black;"
+                ><i class="bi bi-twitter"></i> Twitter X</a
+              >
+            </div>
+          </div>
+          <div class="col-10 border h-100">
+            <p class="content-title p-3">
+              <i class="bi bi-calendar-event"></i> <span id="ct"></span>
+            </p>
+            <div class="video-content" align="center">
+              <div class="tab">
+                <table id="jadwal" class="table text-center d-flex justify-content-center">
+                  <tbody id="table-jadwal" class="jadwal"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TODO: Footer -->
+    <div class="footer p-3">
+      <footer class="p-1">
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top"
+        >
+          <p>
+            <i class="bi bi-c-circle"></i> 2023 Pt. Hayat TV Entertainment, Inc.
+            All rights reserved.
+          </p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3">
+              <a
+                class="link-body-emphasis"
+                href="https://www.facebook.com/jurnalkotimhayattv/"
+                target="_blank"
+                ><i class="bi bi-facebook"></i
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a
+                class="link-body-emphasis"
+                href="https://www.instagram.com/hayattvsampit/"
+                target="_blank"
+                ><i class="bi bi-instagram"></i
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a
+                class="link-body-emphasis"
+                href="https://www.youtube.com/@hayattvsampit"
+                target="_blank"
+                ><i class="bi bi-youtube"></i
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a
+                class="link-body-emphasis"
+                href="https://hayattvmobile.site/"
+                target="_blank"
+                ><i class="bi bi-globe2"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+
+    <!-- TODO: Script -->
+
+    <script
+      src="https://static.elfsight.com/platform/platform.js"
+      data-use-service-core
+      defer
+    ></script>
+    <script type="text/javascript">
+      function display_c() {
+        var refresh = 1000;
+        mytime = setTimeout("display_ct()", refresh);
+      }
+
+      function display_ct() {
+        var x = new Date();
+        var x1 = x.getFullYear() + "/" + (x.getMonth() + 1) + "/" + x.getDate();
+        x1 = x1;
+        document.getElementById("ct").innerHTML = x1;
+        display_c();
+      }
+    </script>
+    <script src="https://vjs.zencdn.net/7.15.4/video.js"></script>
+    <script>
+      var player = videojs("hayattv");
+    </script>
+
+    <script>
+      const url =
+        "https://script.google.com/macros/s/AKfycbzYR3D9E9SuBABytCYb02jrLTqQl_9JZWim79wH4GSK-p5eSlK0FJTQ3opc6OMYqY87/exec" +
+        "?function=readData";
+
+      fetch(url)
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("table-jadwal").innerHTML = data;
+        })
+        .catch((error) => {
+          console.error("Error updating viewer count on the server:", error);
+        });
+    </script>
+
+    <script src="./script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
